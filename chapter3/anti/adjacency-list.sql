@@ -32,4 +32,35 @@ INSERT INTO comment (comment_id, parent_id, bug_id, author, comment_date, commen
 INSERT INTO comment (comment_id, parent_id, bug_id, author, comment_date, comment) VALUES (6, 4, 1, 1, now(), '그래 확인 코드 추가');
 INSERT INTO comment (comment_id, parent_id, bug_id, author, comment_date, comment) VALUES (7, 6, 1, 3, now(), '수정했어');
 
+## 인접 목록에서 트리 조회하기 (모든 자식 조회)
+
+SELECT c1.*, c2.*
+FROM comment c1
+         LEFT JOIN comment c2 ON c2.parent_id = c1.comment_id;
+
+### 트리 구조를 모두 조회하여 애플리케이션에서 조합하는 방법도 있음
+
+SELECT *
+FROM comment
+where bug_id = 123;
+
+## 트리 구조 목록 유지
+
+### 추가
+INSERT INTO comment (comment_id, parent_id, bug_id, author, comment_date, comment) VALUES (8, 7, 1, 3, now(), '고마워');
+
+### 변경
+UPDATE comment
+SET parent_id = 3
+WHERE comment_id = 6;
+
+### 삭제
+SELECT comment_id FROM comment WHERE parent_id = 4;
+SELECT comment_id FROM comment WHERE parent_id = 5;
+SELECT comment_id FROM comment WHERE parent_id = 6;
+SELECT comment_id FROM comment WHERE parent_id = 7;
+
+DELETE FROM comment WHERE parent_id IN (7);
+DELETE FROM comment WHERE parent_id IN (5, 6);
+DELETE FROM comment WHERE parent_id IN (4);
 
