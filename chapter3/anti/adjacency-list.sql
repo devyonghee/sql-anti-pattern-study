@@ -22,7 +22,7 @@ INSERT INTO bug_status(status) VALUES ('NEW');
 
 INSERT INTO bug (bug_id, date_reported, summary, description, resolution, reported_by, assigned_to, verified_by, status, priority, hours) VALUES (2, now(), null, null, null, 1, null, null, 'NEW', null, null);
 
-INSERT INTO sql_anti_pattern.comment (parent_id, bug_id, author, comment_date, comment) VALUES (null, 1, 1, now(), '이 버그의 원인이 뭘까')
+INSERT INTO sql_anti_pattern.comment (parent_id, bug_id, author, comment_date, comment) VALUES (null, 1, 1, now(), '이 버그의 원인이 뭘까');
 
 INSERT INTO comment (comment_id, parent_id, bug_id, author, comment_date, comment) VALUES (1, null, 1, 1, now(), '이 버그의 원인이 뭘까');
 INSERT INTO comment (comment_id, parent_id, bug_id, author, comment_date, comment) VALUES (2, 1, 1, 2, now(), '널 포인터 때문인 것 같아');
