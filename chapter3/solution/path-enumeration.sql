@@ -1,3 +1,5 @@
+## 경로 열거 방식
+
 CREATE TABLE comment
 (
     comment_id   BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -32,7 +34,7 @@ INSERT INTO comment (comment_id, path, bug_id, author, comment_date, comment) VA
 
 SELECT * FROM comment WHERE '1/4/6/7' LIKE concat(path, '%');
 
-### 후손 경로 조회
+### 자손 경로 조회
 
 SELECT * FROM comment WHERE path LIKE '1/4/%';
 
