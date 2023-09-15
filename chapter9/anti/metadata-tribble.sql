@@ -59,7 +59,7 @@ FROM (SELECT *
       UNION ALL
       SELECT *
       FROM bug_2025) b
-GROUP BY b.status
+GROUP BY b.status;
 
 ## 부모 테이블과 함께 조회
 
