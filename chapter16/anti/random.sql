@@ -1,0 +1,4 @@
+SELECT *
+FROM bug
+ORDER BY RAND()
+LIMIT 1;
